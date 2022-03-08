@@ -1,7 +1,7 @@
 # snscrape
 snscrape is a scraper for social networking services (SNS). It scrapes things like user profiles, hashtags, or searches and returns the discovered items, e.g. the relevant posts.
 
-This is a clone of https://github.com/JustAnotherArchivist/snscrape but it is designed to work for Python under 3.8 and fixed some errors. It's under development, use with your responsibilities. If you have Python >= 3.8 you'd better use the main project created by JustAnotherArchivist.
+This is a clone of https://github.com/JustAnotherArchivist/snscrape but it is changed to work for Python under 3.8 and fixed some errors. It's under development, use with your responsibilities. If you have Python >= 3.8 you'd better use the main project created by JustAnotherArchivist.
 
 The following services are currently supported:
 
@@ -9,7 +9,7 @@ The following services are currently supported:
 * Instagram: user profiles, hashtags, and locations
 * Mastodon: user profiles and toots (single or thread)
 * Reddit: users, subreddits, and searches (via Pushshift)
-* Telegram: channels
+* Telegram: channels, posts
 * Twitter: users, user profiles, hashtags, searches, tweets (single or surrounding thread), list posts, and trends
 * VKontakte: user profiles
 * Weibo (Sina Weibo): user profiles
@@ -77,6 +77,7 @@ To get the latest 100 tweets with the hashtag #archiveteam:
     snscrape --max-results 100 twitter-hashtag archiveteam
 
 ### Python Examples
+#### Twitter
 Collect all tweets by jack (@jack):
 
     # importing libraries and packages
@@ -132,6 +133,21 @@ The code below scrapes 5000 tweets in English Language, with the keyword ‘Trum
     # Creating a dataframe from the tweets list above
     df = pd.DataFrame(tweets_list)
 
+
+#### Telegram
+The code below scrapes 100 posts in TelegramTips channel, then pull all available attributes of the post object.
+
+    import snscrape.modules.telegram as sntwitter
+    import pandas as pd
+
+    thelist = []
+
+    for i, mydata in enumerate(sntwitter.TelegramChannelScraper('TelegramTips').get_items()):
+      if i>100:
+        break
+      thelist.append(mydata)
+
+    df = pd.DataFrame(thelist)
 
 
 ## Issue reporting
