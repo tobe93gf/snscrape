@@ -137,12 +137,12 @@ The code below scrapes 5000 tweets in English Language, with the keyword ‘Trum
 ### Telegram
 The code below scrapes 100 posts in TelegramTips channel, then pull all available attributes of the post object.
 
-    import snscrape.modules.telegram as sntwitter
+    import snscrape.modules.telegram as sntelegram
     import pandas as pd
 
     thelist = []
 
-    for i, mydata in enumerate(sntwitter.TelegramChannelScraper('TelegramTips').get_items()):
+    for i, mydata in enumerate(sntelegram.TelegramChannelScraper('TelegramTips').get_items()):
       if i>100:
         break
       thelist.append(mydata)
