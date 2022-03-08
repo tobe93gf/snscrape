@@ -620,7 +620,7 @@ class _TwitterAPIScraper(snscrape.base.Scraper):
 			# Try to convert the URL to the non-shortened/t.co one
 			try:
 				i = kwargs['tcooutlinks'].index(card.url)
-			except ValueError:
+			except:
 				_logger.warning('Could not find card URL in tcooutlinks')
 			else:
 				card.url = kwargs['outlinks'][i]
