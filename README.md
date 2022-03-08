@@ -1,7 +1,7 @@
 # snscrape
 snscrape is a scraper for social networking services (SNS). It scrapes things like user profiles, hashtags, or searches and returns the discovered items, e.g. the relevant posts.
 
-This is a clone of https://github.com/JustAnotherArchivist/snscrape but it is designed to work for Python under 3.8. It's under development, use with your responsibilities.
+This is a clone of https://github.com/JustAnotherArchivist/snscrape but it is designed to work for Python under 3.8 and fixed some errors. It's under development, use with your responsibilities. If you have Python >= 3.8 you'd better use the main project created by JustAnotherArchivist.
 
 The following services are currently supported:
 
