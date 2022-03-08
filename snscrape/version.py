@@ -1,7 +1,5 @@
-import importlib.metadata
-
-
 try:
-	__version__ = importlib.metadata.version('snscrape')
-except importlib.metadata.PackageNotFoundError:
-	__version__ = None
+    from importlib import metadata
+except ImportError: # for Python<3.8
+    import importlib_metadata as metadata
+__version__ = metadata.version("jsonschema")
