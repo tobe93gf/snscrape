@@ -76,8 +76,24 @@ To get the latest 100 tweets with the hashtag #archiveteam:
 
     snscrape --max-results 100 twitter-hashtag archiveteam
 
-### Library
-It is also possible to use snscrape as a library in Python, but this is currently undocumented.
+#### Python Examples
+
+    # importing libraries and packages
+    import snscrape.modules.twitter as sntwitter
+    import pandas
+
+    # Creating list to append tweet data 
+    tweets_list1 = []
+
+    # Using TwitterSearchScraper to scrape data and append tweets to list
+    for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:jack').get_items()): #declare a username 
+        if i>1000: #number of tweets you want to scrape
+            break
+        tweets_list1.append([tweet.date, tweet.id, tweet.content, tweet.user.username]) #declare the attributes to be returned
+    
+    # Creating a dataframe from the tweets list above 
+    tweets_df1 = pd.DataFrame(tweets_list1, columns=['Datetime', 'Tweet Id', 'Text', 'Username'])
+
 
 ## Issue reporting
 If you discover an issue with snscrape, please report it at <https://github.com/tobe93gf/snscrape/issues>. If possible please run snscrape with `-vv` and `--dump-locals` and include the log output as well as the dump files referenced in the log in the issue. Note that the files may contain sensitive information in some cases and could potentially be used to identify you (e.g. if the service includes your IP address in its response). If you prefer to arrange a file transfer privately, just mention that in the issue.
