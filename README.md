@@ -76,8 +76,8 @@ To get the latest 100 tweets with the hashtag #archiveteam:
 
     snscrape --max-results 100 twitter-hashtag archiveteam
 
-### Python Examples
-#### Twitter
+## Python Examples
+### Twitter
 Collect all tweets by jack (@jack):
 
     # importing libraries and packages
@@ -134,7 +134,7 @@ The code below scrapes 5000 tweets in English Language, with the keyword ‘Trum
     df = pd.DataFrame(tweets_list)
 
 
-#### Telegram
+### Telegram
 The code below scrapes 100 posts in TelegramTips channel, then pull all available attributes of the post object.
 
     import snscrape.modules.telegram as sntwitter
