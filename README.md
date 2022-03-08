@@ -77,6 +77,7 @@ To get the latest 100 tweets with the hashtag #archiveteam:
     snscrape --max-results 100 twitter-hashtag archiveteam
 
 #### Python Examples
+Collect all tweets by jack (@jack):
 
     # importing libraries and packages
     import snscrape.modules.twitter as sntwitter
@@ -87,12 +88,30 @@ To get the latest 100 tweets with the hashtag #archiveteam:
 
     # Using TwitterSearchScraper to scrape data and append tweets to list
     for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:jack').get_items()): #declare a username 
+        tweets_list.append([tweet.date, tweet.id, tweet.content, tweet.user.username]) #declare the attributes to be returned
         if i>1000: #number of tweets you want to scrape
             break
-        tweets_list.append([tweet.date, tweet.id, tweet.content, tweet.user.username]) #declare the attributes to be returned
     
     # Creating a dataframe from the tweets list above 
     tweets_df1 = pd.DataFrame(tweets_list, columns=['Datetime', 'Tweet Id', 'Text', 'Username'])
+
+
+Using the code below, we are scraping 100 tweets between January 1, 2021, and May 31, 2021, with the keywords ‘COVID’, then pull attributes DateTime, tweet id, text, and username from the tweet object.
+
+    import snscrape.modules.twitter as sntwitter
+    import pandas
+
+    # Creating list to append tweet data to
+    tweets_list = []
+
+    # Using TwitterSearchScraper to scrape data and append tweets to list
+    for i,tweet in enumerate(sntwitter.TwitterSearchScraper('COVID since:2021-01-01 until:2021-05-31').get_items()):
+        if i>5000:
+            break
+        tweets_list.append([tweet.date, tweet.id, tweet.content, tweet.user.username])
+    
+    # Creating a dataframe from the tweets list above
+    tweets_list = pd.DataFrame(tweets_list, columns=['Datetime', 'Tweet Id', 'Text', 'Username'])
 
 
 ## Issue reporting
