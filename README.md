@@ -96,6 +96,7 @@ Collect all tweets by jack (@jack):
     tweets_df1 = pd.DataFrame(tweets_list, columns=['Datetime', 'Tweet Id', 'Text', 'Username'])
 
 
+
 Using the code below, we are scraping 100 tweets between January 1, 2021, and May 31, 2021, with the keywords ‘COVID’, then pull attributes DateTime, tweet id, text, and username from the tweet object.
 
     import snscrape.modules.twitter as sntwitter
