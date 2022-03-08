@@ -43,6 +43,24 @@ Some noteworthy global options are:
 * `--max-results NUMBER` to only return the first `NUMBER` results.
 * `--with-entity` to get an item on the entity being scraped, e.g. the user or channel. This is not supported on all scrapers. (You can use this together with `--max-results 0` to only fetch the entity info.)
 
+### Twitter
+Attributes Available Through snscrape Tweet Object: Attribute description left blank if purpose is unknown
+* url: Permalink pointing to tweet location 
+* date: Date tweet was created 
+* content: Text content of tweet 
+* renderedContent: Appears to also be text content of tweet 
+* id: ld of tweet 
+* user: User object containing the following data: username, displayname, id, description, descriptionUrls, verified, created, followersCount, friendsCount,
+statusesCount, favouritesCount, listed Count, mediaCount, location, protected, linkuri, profileImageUrl, profileBannerUrl • outlinks • tcooutlinks · replyCount: Count of replies · retweetCount: Count of retweets 
+* likeCount: Count of likes 
+* quoteCount: Count of users that quoted the tweet and replied 
+* conversationld: Appears to be the same as tweetid 
+* lang: Machine generated, assumed language of tweet 
+* source: Where tweet was posted from, ex: IPhone, Android, etc. 
+* media: Media object, containing previewUrl, fullUrl, and type · retweeted Tweet: If is a retweet, id of original tweet 
+* quoted Tweet: If is a quoted tweet, id of original tweet • mentionedUsers: User objects of any mentioned user in tweet
+
+
 #### Examples
 Collect all tweets by Jason Scott (@textfiles):
 
